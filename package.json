@@ -1,0 +1,15 @@
+{
+  "name": "orval-enum-bug-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "orval --config ./orval.config.ts",
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "orval": "^6.16.0"
+  }
+}
