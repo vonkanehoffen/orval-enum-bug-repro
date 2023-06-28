@@ -27,13 +27,22 @@ components:
   schemas:
     LoginStatus:
       enum:
-        - 0 - Unknown
-        - 1 - Success
-        - 2 - TwoFactorRequiredYubikey
-        - 3 - TwoFactorRequiredGoogleAuthenticator
-        - 4 - InvalidEmailOrPassword
-        - 5 - InvalidToken
-        - 6 - InvalidRefreshToken
-        - 7 - InvalidTwoFactorCode
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      x-enumNames:
+        - Unknown
+        - Success
+        - TwoFactorRequiredYubikey
+        - TwoFactorRequiredGoogleAuthenticator
+        - InvalidEmailOrPassword
+        - InvalidToken
+        - InvalidRefreshToken
+        - InvalidTwoFactorCode
       type: integer
       format: int32

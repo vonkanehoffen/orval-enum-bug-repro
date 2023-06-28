@@ -5,17 +5,16 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type LoginStatus = typeof LoginStatus[keyof typeof LoginStatus];
-
+export type LoginStatus = (typeof LoginStatus)[keyof typeof LoginStatus];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LoginStatus = {
-  '0_-_Unknown': 0 - Unknown,
-  '1_-_Success': 1 - Success,
-  '2_-_TwoFactorRequiredYubikey': 2 - TwoFactorRequiredYubikey,
-  '3_-_TwoFactorRequiredGoogleAuthenticator': 3 - TwoFactorRequiredGoogleAuthenticator,
-  '4_-_InvalidEmailOrPassword': 4 - InvalidEmailOrPassword,
-  '5_-_InvalidToken': 5 - InvalidToken,
-  '6_-_InvalidRefreshToken': 6 - InvalidRefreshToken,
-  '7_-_InvalidTwoFactorCode': 7 - InvalidTwoFactorCode,
+  Unknown: 0,
+  Success: 1,
+  TwoFactorRequiredYubikey: 2,
+  TwoFactorRequiredGoogleAuthenticator: 3,
+  InvalidEmailOrPassword: 4,
+  InvalidToken: 5,
+  InvalidRefreshToken: 6,
+  InvalidTwoFactorCode: 7,
 } as const;
