@@ -4,7 +4,8 @@
  * Swagger Petstore
  * OpenAPI spec version: 1.0.0
  */
+import type { LoginStatus } from './loginStatus';
 
 export type ListPets200 = {
-  thing?: string;
+  thing?: LoginStatus;
 };

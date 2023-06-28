@@ -9,12 +9,6 @@ export default defineConfig({
       client: "react-query",
       mock: false,
       clean: true,
-      override: {
-        // mutator: {
-        //   path: './src/api/axiosInstance.ts',
-        //   name: 'customInstance',
-        // },
-      },
     },
     input: {
       target: "./schema.yaml",

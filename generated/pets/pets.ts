@@ -20,8 +20,7 @@ import type {
   QueryKey
 } from '@tanstack/react-query'
 import type {
-  ListPets200,
-  ListPetsParams
+  ListPets200
 } from '.././model'
 
 type AwaitedInput<T> = PromiseLike<T> | T;
@@ -33,29 +32,27 @@ type AwaitedInput<T> = PromiseLike<T> | T;
  * @summary List all pets
  */
 export const listPets = (
-    params?: ListPetsParams, options?: AxiosRequestConfig
+     options?: AxiosRequestConfig
  ): Promise<AxiosResponse<ListPets200>> => {
     return axios.get(
-      `/pets`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/pets`,options
     );
   }
 
 
-export const getListPetsQueryKey = (params?: ListPetsParams,) => [`/pets`, ...(params ? [params]: [])] as const;
+export const getListPetsQueryKey = () => [`/pets`] as const;
   
 
     
-export const getListPetsQueryOptions = <TData = Awaited<ReturnType<typeof listPets>>, TError = AxiosError<unknown>>(params?: ListPetsParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listPets>>, TError, TData>, axios?: AxiosRequestConfig}
+export const getListPetsQueryOptions = <TData = Awaited<ReturnType<typeof listPets>>, TError = AxiosError<unknown>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listPets>>, TError, TData>, axios?: AxiosRequestConfig}
 ): UseQueryOptions<Awaited<ReturnType<typeof listPets>>, TError, TData> & { queryKey: QueryKey } => {
 const {query: queryOptions, axios: axiosOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getListPetsQueryKey(params);
+  const queryKey =  queryOptions?.queryKey ?? getListPetsQueryKey();
 
   
   
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof listPets>>> = ({ signal }) => listPets(params, { signal, ...axiosOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof listPets>>> = ({ signal }) => listPets({ signal, ...axiosOptions });
     
       
       
@@ -68,11 +65,11 @@ export type ListPetsQueryError = AxiosError<unknown>
  * @summary List all pets
  */
 export const useListPets = <TData = Awaited<ReturnType<typeof listPets>>, TError = AxiosError<unknown>>(
- params?: ListPetsParams, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listPets>>, TError, TData>, axios?: AxiosRequestConfig}
+  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof listPets>>, TError, TData>, axios?: AxiosRequestConfig}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
 
-  const queryOptions = getListPetsQueryOptions(params,options)
+  const queryOptions = getListPetsQueryOptions(options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

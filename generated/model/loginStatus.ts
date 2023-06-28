@@ -5,11 +5,11 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type AdminTokenCreateResultTypeMlsaq = typeof AdminTokenCreateResultTypeMlsaq[keyof typeof AdminTokenCreateResultTypeMlsaq];
+export type LoginStatus = typeof LoginStatus[keyof typeof LoginStatus];
 
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export const AdminTokenCreateResultTypeMlsaq = {
+export const LoginStatus = {
   '0_-_Unknown': 0 - Unknown,
   '1_-_Success': 1 - Success,
   '2_-_TwoFactorRequiredYubikey': 2 - TwoFactorRequiredYubikey,
