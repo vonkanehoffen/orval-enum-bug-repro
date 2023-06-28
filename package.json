@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "codegen": "orval --config ./orval.config.ts",
+    "codegen": "orval --config ./orval.config.ts"
   },
   "author": "",
   "license": "ISC",
